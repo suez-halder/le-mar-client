@@ -10,7 +10,7 @@ const Chef = ({ chef }) => {
     return (
         <Col>
             <Card >
-                <Card.Img variant="top" src={picture}/>
+                <Card.Img src={picture} style={{height:'600px'}}/>
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Link to={`/chefs/${id}`}><Button>View Recipes</Button></Link>
