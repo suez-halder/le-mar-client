@@ -1,20 +1,20 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import banner from './../../assets/banner/banner.jpeg'
 
 const Banner = () => {
     return (
-        <Card className="bg-dark text-white">
-            <Card.Img src={banner} alt="Card image" />
-            <Card.ImgOverlay>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                    This is a wider card with supporting text below as a natural lead-in
-                    to additional content. This content is a little bit longer.
+        <Card className="bg-dark text-white position-relative">
+            <Card.Img style={{ height: '100vh', opacity: '0.5' }} src={banner} alt="Card image" />
+            <Card.ImgOverlay className="d-flex flex-column justify-content-center align-items-center" >
+                <Card.Text className='fs-4'>
+                    <h2>Amazing French Chefs with Their Amazing Recipes</h2>
                 </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text>
+                <Button>Must Try Recipes</Button>
             </Card.ImgOverlay>
         </Card>
+
+
     );
 };
 

@@ -5,13 +5,13 @@ import logo from './../../assets/logo/logo.png'
 
 const Menubar = () => {
     return (
-        <Navbar bg="light" expand="lg" className='d-flex justify-content-between align-items-center'>
-            <Image src={logo}></Image>
-            <div className='d-flex gap-4 text-xl'>
-                <Link to='/'>Home</Link>
-                <Link to='/blogs'>Blogs</Link>
-                <Link to='/login'>Login</Link>
-                <Link to='/register'>Register</Link>
+        <Navbar className='d-flex justify-content-between align-items-center w-75 mx-auto my-2'>
+            <Image style={{height: '40px'}} src={logo}></Image>
+            <div className='d-flex gap-4 fs-5'>
+                <Link  to='/' className='text-decoration-none'>Home</Link>
+                <Link to='/blogs' className='text-decoration-none'>Blogs</Link>
+                <Link to='/login' className='text-decoration-none'>Login</Link>
+                <Link to='/register' className='text-decoration-none'>Register</Link>
             </div>
         </Navbar>
     );
