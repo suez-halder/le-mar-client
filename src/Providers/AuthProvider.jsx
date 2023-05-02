@@ -25,18 +25,20 @@ const AuthProvider = ({children}) => {
     }
 
     const logOut = () =>{
-        return signOut();
+        setLoading(true);
+        return signOut(auth);
     }
 
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, (loggedUser)=>{
-            setUser(loggedUser);
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
             setLoading(false);
-        })
+        });
+        // stop observing while unmounting
         return () => {
             return unsubscribe();
         }
-    },[])
+    }, [])
 
 
     const authInfo={
