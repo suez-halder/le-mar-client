@@ -1,24 +1,35 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
     // console.log(chef);
     const { id, name, picture, experience, total_recipes, likes } = chef;
-
-    
+    // console.log(experience)
 
     return (
+        <Col>
+            <Card >
+                <Card.Img variant="top" src={picture}/>
+                <Card.Body>
+                    <Card.Title>{name}</Card.Title>
+                    <Link to={`/chefs/${id}`}><Button>View Recipes</Button></Link>
+                    <Card.Text>
+                        Years of experience: {experience} years
+                    </Card.Text>
+                    <Card.Text>
+                        Total Recipes: {total_recipes}
+                    </Card.Text>
+                    <Card.Text>
+                        {likes} likes
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </Col>
 
-        <Card className="text-center">
-            <Card.Header>{name}</Card.Header>
-            <Card.Body>
-                <Card.Title>Special title treatment</Card.Title>
-                <Card.Img className='w-25' variant="top" src={picture} />
-                <Link to={`/chefs/${id}`}><Button>View Recipes</Button></Link>
-            </Card.Body>
-            <Card.Footer className="text-muted">2 days ago</Card.Footer>
-        </Card>
+
+
+
     );
 };
 

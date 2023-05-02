@@ -6,10 +6,12 @@ const ChefDetail = () => {
     const chefDetail = useLoaderData()
 
     console.log(chefDetail);
+
+    const {picture, name, bio, } = chefDetail;
     
     return (
         <div>
-            <h2>Chef Name: {chefDetail.name}</h2>
+            <h2>Chef Name: {name}</h2>
             
         </div>
     );
