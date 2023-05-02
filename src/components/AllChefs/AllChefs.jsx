@@ -7,7 +7,7 @@ const AllChefs = () => {
     // console.log(chefs);
     return (
         <div>
-            <h2>This are all chefs:{allChefs.length}</h2>
+            <h2></h2>
             {
                 allChefs.map(chef => <Chef
                 key={chef.id}

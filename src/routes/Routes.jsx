@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Main from "../layouts/Main";
+import Blogs from "../pages/Blogs";
 import ChefDetail from "../pages/ChefDetail";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
                 path: '/chefs/:id',
                 element: <ChefDetail></ChefDetail>,
                 loader: ({params}) => fetch(`http://localhost:3000/chefs/${params.id}`)
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
                 path: '/login',
