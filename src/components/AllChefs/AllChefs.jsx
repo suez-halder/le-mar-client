@@ -1,12 +1,19 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Chef from '../Chef/Chef';
 
 const AllChefs = () => {
-    const chefs = useLoaderData();
+    const allChefs = useLoaderData();
     // console.log(chefs);
     return (
         <div>
-            <h2>This are all chefs:{chefs.length}</h2>
+            <h2>This are all chefs:{allChefs.length}</h2>
+            {
+                allChefs.map(chef => <Chef
+                key={chef.id}
+                chef={chef}
+                ></Chef>)
+            }
         </div>
     );
 };

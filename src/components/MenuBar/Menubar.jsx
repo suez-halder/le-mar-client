@@ -5,12 +5,14 @@ import logo from './../../assets/logo/logo.png'
 
 const Menubar = () => {
     return (
-        <Navbar bg="info" expand="lg" className='d-flex justify-content-around'>
+        <Navbar bg="light" expand="lg">
             <Image src={logo}></Image>
-            <Link to='/'>Home</Link>
-            <Link to='/blogs'>Blogs</Link>
-            <Link to='/login'>Login</Link>
-            <Link to='/register'>Register</Link>
+            <div>
+                <Link to='/'>Home</Link>
+                <Link to='/blogs'>Blogs</Link>
+                <Link to='/login'>Login</Link>
+                <Link to='/register'>Register</Link>
+            </div>
         </Navbar>
     );
 };

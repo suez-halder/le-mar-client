@@ -1,12 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 
 const ChefDetail = () => {
     const {id} = useParams();
-    console.log(id);
+    const chefDetail = useLoaderData()
+
+    console.log(chefDetail);
+    
     return (
         <div>
-            <h2>This is chef details</h2>
+            <h2>Chef Name: {chefDetail.name}</h2>
+            
         </div>
     );
 };
