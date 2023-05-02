@@ -3,8 +3,14 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const Register = () => {
+
+    const {register} = useContext(AuthContext);
+    // console.log(register);
+    
     const [error, setError] = useState(null);
 
     const handleRegister = event => {
@@ -19,12 +25,17 @@ const Register = () => {
 
         if (password.length <= 6) {
             setError("Password should be at least 6 characters");
+            return;
         }
 
-        
-
-
-
+        register(email, password)
+        .then(result =>{
+            const loggedUser = result.user;
+            form.reset()
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
     }
 
 

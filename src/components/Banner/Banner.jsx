@@ -7,9 +7,9 @@ const Banner = () => {
         <Card className="bg-dark text-white position-relative">
             <Card.Img style={{ height: '100vh', opacity: '0.5' }} src={banner} alt="Card image" />
             <Card.ImgOverlay className="d-flex flex-column justify-content-center align-items-center" >
-                <Card.Text className='fs-4'>
+                <div className='fs-4'>
                     <h2>Amazing French Chefs with Their Amazing Recipes</h2>
-                </Card.Text>
+                </div>
                 <Button>Must Try Recipes</Button>
             </Card.ImgOverlay>
         </Card>

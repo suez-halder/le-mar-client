@@ -1,8 +1,41 @@
 import React from 'react';
+import { useState } from 'react';
+import { useContext } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
+    const {logIn} = useContext(AuthContext);
+    
+    const [error, setError] = useState(null);
+    
+    
+    const handleLogin = event => {
+        event.preventDefault();
+
+        const form = event.target;
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+
+        logIn(email, password)
+        .then(result=>{
+            const loggedUser = result.user;
+            
+        })
+        .catch(error =>{
+            setError(error);
+        })
+
+        
+        
+    }
+
+
+
     return (
         <Container>
             <Row className="vh-75 d-flex justify-content-center align-items-center">
@@ -13,7 +46,7 @@ const Login = () => {
                             <div className="mb-3 mt-md-4">
                                 <h3 className=" mb-5 text-center">Please enter your login!</h3>
                                 <div className="mb-3">
-                                    <Form>
+                                    <Form onSubmit={handleLogin}>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label className="text-center">
                                                 Email address
