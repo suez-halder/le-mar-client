@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Button, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import ActiveLink from '../ActiveLink/ActiveLink';
 import logo from './../../assets/logo/logo.png'
 
 const Menubar = () => {
@@ -18,13 +19,13 @@ const Menubar = () => {
 
         return (
             <Navbar className='d-flex justify-content-between align-items-center w-75 mx-auto my-5'>
-                <Link to='/'>
-                <h2 className='text-primary'>Le Mar</h2>
-                </Link>
+                <ActiveLink to='/'>
+                <h2>Le Mar</h2>
+                </ActiveLink>
 
                 <div className='d-flex align-items-center gap-4 fs-5'>
                     {/* <Link to='/' className='text-decoration-none'>Home</Link> */}
-                    <Link to='/blogs' className='text-decoration-none'>Blogs</Link>
+                    <ActiveLink to='/blogs'>Blogs</ActiveLink>
                     <Nav>
                         {
                             user && <Image
