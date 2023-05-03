@@ -1,0 +1,3 @@
+.min-vh-custom {
+    min-height: calc(100vh - 650px);
+  }
