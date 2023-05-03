@@ -45,15 +45,12 @@ const Menubar = () => {
                                 className='me-2' />
                         }
                         
-
                         {user ?
                             <Button onClick={handleLogOut} variant="danger">Logout</Button> :
 
                             <Link to="/login">
                                 <Button variant="primary">Login</Button>
                             </Link>
-
-
                         }
                     </Nav>
                 </div>
