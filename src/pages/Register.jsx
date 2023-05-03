@@ -6,17 +6,18 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 
 
 const Register = () => {
     const navigate = useNavigate()
 
-    const { register, displayUser, setUser, googleSignIn } = useContext(AuthContext);
+    const { register, displayUser, setUser, googleSignIn, githubSignIn } = useContext(AuthContext);
     // console.log(register);
 
     const [error, setError] = useState(null);
@@ -49,19 +50,28 @@ const Register = () => {
                 setError(error.message)
             })
 
-
-
-
     }
 
     const handleGoogle = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const loggedUser = result.user;
+                navigate('/')
             })
             .catch(error => {
                 setError(error.message);
             })
+    }
+
+    const handleGithub = ()=>{
+        githubSignIn(githubProvider)
+        .then(result => {
+            const loggedUser = result.user;
+            navigate('/')
+        })
+        .catch(error => {
+            setError(error.message);
+        })
     }
 
 
@@ -117,7 +127,7 @@ const Register = () => {
                                         <div className='fs-4 d-flex justify-content-around gap-4 m-4'>
 
                                             <FaGoogle onClick={handleGoogle}></FaGoogle>
-                                            <FaGithub></FaGithub>
+                                            <FaGithub onClick={handleGithub}></FaGithub>
                                         </div>
                                         <div className="d-grid">
                                             <Button variant="primary" type="submit">

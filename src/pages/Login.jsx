@@ -2,17 +2,25 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link, useNavigate} from 'react-router-dom';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+
+
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
+
 
 const Login = () => {
-    
+
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    
-    const {logIn, displayUser, setUser} = useContext(AuthContext);
-    
-    
+
+    const { logIn, setUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+
+
     const handleLogin = event => {
         event.preventDefault();
 
@@ -24,21 +32,48 @@ const Login = () => {
         // console.log(email, password);
 
         logIn(email, password)
-        .then(result=>{
-            const loggedUser = result.user;
-            // displayUser(loggedUser.photoURL);
-            // setUser(loggedUser);
-            console.log(loggedUser);
-            navigate('/')
-            
-        })
-        .catch(error =>{
-            setError(error);
-            console.log(error.message);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                setUser(loggedUser)
+                // displayUser(loggedUser.photoURL);
+                // setUser(loggedUser);
+                // console.log(loggedUser);
+                navigate('/')
 
-        
-        
+            })
+            .catch(error => {
+                setError(error);
+                console.log(error.message);
+            })
+
+
+
+    }
+
+    const handleGoogle = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                setUser(loggedUser)
+                console.log(loggedUser);
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
+    const handleGithub = () => {
+        githubSignIn(githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser.photoURL);
+                setUser(loggedUser)
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     }
 
 
@@ -72,6 +107,16 @@ const Login = () => {
                                             className="mb-3"
                                             controlId="formBasicCheckbox"
                                         >
+                                            <div className='d-flex align-items-center'>
+                                                <hr className='w-50 me-2' />
+                                                <span>or</span>
+                                                <hr className='w-50 ms-2' />
+                                            </div>
+                                            <div className='fs-4 d-flex justify-content-around gap-4 m-4'>
+
+                                                <FaGoogle onClick={handleGoogle}></FaGoogle>
+                                                <FaGithub onClick={handleGithub}></FaGithub>
+                                            </div>
                                             <p className="small">
                                                 <a className="text-primary" href="#!">
                                                     Forgot password?

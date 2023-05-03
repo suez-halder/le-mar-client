@@ -8,7 +8,7 @@ import logo from './../../assets/logo/logo.png'
 const Menubar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    // console.log(user);
+    console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -25,7 +25,7 @@ const Menubar = () => {
                 <Link to='/blogs' className='text-decoration-none'>Blogs</Link>
                 <Nav>
                     {
-                        user && <Image style={{height: '40px', width:'40px'}} src={user.photoURL} alt="" rounded className='me-2' />
+                        user && <Image style={{height: '40px', width:'40px'}} src={user.photoURL} alt="" title={user.displayName} rounded className='me-2' />
                     }
 
                     {user ?
