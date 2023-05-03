@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
@@ -17,10 +17,15 @@ const Login = () => {
 
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
+
 
     const { logIn, setUser, googleSignIn, githubSignIn } = useContext(AuthContext);
 
 
+    const from = location.state?.from?.pathname || "/";
+
+    
     const handleLogin = event => {
         event.preventDefault();
 
@@ -35,10 +40,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 setUser(loggedUser)
-                // displayUser(loggedUser.photoURL);
-                // setUser(loggedUser);
-                // console.log(loggedUser);
-                navigate('/')
+                navigate(from, { replace: true })
 
             })
             .catch(error => {
@@ -55,8 +57,8 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 setUser(loggedUser)
-                console.log(loggedUser);
-                navigate('/')
+                // console.log(loggedUser);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);
@@ -69,7 +71,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 // console.log(loggedUser.photoURL);
                 setUser(loggedUser)
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);

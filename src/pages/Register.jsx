@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -16,12 +16,15 @@ const githubProvider = new GithubAuthProvider();
 
 const Register = () => {
     const navigate = useNavigate()
+    const location = useLocation();
 
     const { register, displayUser, setUser, googleSignIn, githubSignIn } = useContext(AuthContext);
     // console.log(register);
 
     const [error, setError] = useState(null);
+    const from = location.state?.from?.pathname || "/";
 
+    
     const handleRegister = event => {
         event.preventDefault();
 
@@ -44,7 +47,7 @@ const Register = () => {
                 displayUser(name, photoURL)
                 setUser({ ...loggedUser, ...{ name, photoURL } });
                 form.reset();
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -56,7 +59,7 @@ const Register = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const loggedUser = result.user;
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);
@@ -67,7 +70,7 @@ const Register = () => {
         githubSignIn(githubProvider)
         .then(result => {
             const loggedUser = result.user;
-            navigate('/')
+            navigate(from, { replace: true })
         })
         .catch(error => {
             setError(error.message);
