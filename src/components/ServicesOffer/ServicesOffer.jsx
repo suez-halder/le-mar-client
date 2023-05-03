@@ -8,8 +8,8 @@ const ServicesOffer = () => {
         <div>
             <h2 className='text-center my-5 fs-1'>Services We Offer</h2>
             <div className='bg-primary py-5 mt-5 bg-opacity-25'>
-                <Container className='d-flex flex-md-col justify-content-between'>
-                    <Card border="primary" style={{ width: '18rem' }} className='rounded-4'>
+                <Container className='d-flex flex-sm-row flex-column justify-content-between gap-4'>
+                    <Card border="primary" style={{ width: '18rem' }} className='rounded-4 w-100 mx-auto'>
                         <Card.Header className='text-center fs-3'>Gift Cards</Card.Header>
                         <Card.Body>
                             <FaGifts className='fs-1 w-100 mx-auto mb-3'></FaGifts>
@@ -19,7 +19,7 @@ const ServicesOffer = () => {
                         </Card.Body>
                         <Button className='w-50 mx-auto my-2'>Find Out More</Button>
                     </Card>
-                    <Card border="primary" style={{ width: '18rem' }} className='rounded-4'>
+                    <Card border="primary" style={{ width: '18rem' }} className='rounded-4 w-100 mx-auto'>
                         <Card.Header className='text-center fs-3'>Private Dining</Card.Header>
                         <Card.Body>
                             <MdBrunchDining className='fs-1 w-100 mx-auto mb-3'></MdBrunchDining>
@@ -29,7 +29,7 @@ const ServicesOffer = () => {
                         </Card.Body>
                         <Button className='w-50 mx-auto my-2'>Find Out More</Button>
                     </Card>
-                    <Card border="primary" style={{ width: '18rem' }} className='rounded-4'>
+                    <Card border="primary" style={{ width: '18rem' }} className='rounded-4 w-100 mx-auto'>
                         <Card.Header className='text-center fs-3'>Catering</Card.Header>
                         <Card.Body>
                             <MdOutlineRestaurantMenu className='fs-1 w-100 mx-auto mb-3'></MdOutlineRestaurantMenu>
