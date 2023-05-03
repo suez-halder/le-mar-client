@@ -30,17 +30,17 @@ const Recipe = ({ recipe }) => {
                 <thead>
                     <tr>
 
-                        <th className='bg-info rounded'>Recipe Name</th>
-                        <th className='bg-warning rounded'>Ingredients</th>
-                        <th className='bg-info rounded'>Cooking Method</th>
-                        <th className='bg-warning rounded'>Rating</th>
-                        <th className='bg-info rounded'></th>
+                        <th className='bg-info rounded text-center'>Recipe Name</th>
+                        <th className='bg-warning rounded text-center'>Ingredients</th>
+                        <th className='bg-info rounded text-center'>Cooking Method</th>
+                        <th className='bg-warning rounded text-center'>Rating</th>
+                        <th className='bg-info rounded  text-center'></th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td className='align-middle w-25'>{name}</td>
+                        <td className='align-middle w-25 text-center'>{name}</td>
                         <td>
                             <ul>
                                 {ingredients.map((ingredient, index) => (

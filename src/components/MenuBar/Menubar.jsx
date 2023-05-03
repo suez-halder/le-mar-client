@@ -39,9 +39,9 @@ const Menubar = () => {
                         {user ?
                             <Button onClick={handleLogOut} variant="danger">Logout </Button> :
 
-                            <ActiveLink to="/login">
+                            <Link to="/login">
                                 <Button className='px-4 fs-6' variant="primary">Login</Button>
-                            </ActiveLink>
+                            </Link>
                         }
                     </Nav>
                 </div>
