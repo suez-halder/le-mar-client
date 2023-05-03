@@ -2,13 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
-    const {logIn} = useContext(AuthContext);
     
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+    
+    const {logIn, displayUser, setUser} = useContext(AuthContext);
     
     
     const handleLogin = event => {
@@ -19,15 +21,20 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
 
         logIn(email, password)
         .then(result=>{
             const loggedUser = result.user;
+            // displayUser(loggedUser.photoURL);
+            // setUser(loggedUser);
+            console.log(loggedUser);
+            navigate('/')
             
         })
         .catch(error =>{
             setError(error);
+            console.log(error.message);
         })
 
         
@@ -77,6 +84,9 @@ const Login = () => {
                                             </Button>
                                         </div>
                                     </Form>
+                                    {
+                                        error
+                                    }
                                     <div className="mt-3">
                                         <p className="mb-0  text-center">
                                             Don't have an account?{" "}

@@ -1,16 +1,24 @@
 import React from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 
-const Register = () => {
+import { GoogleAuthProvider } from 'firebase/auth';
 
-    const {register} = useContext(AuthContext);
+
+const googleProvider = new GoogleAuthProvider();
+
+
+
+const Register = () => {
+    const navigate = useNavigate()
+
+    const { register, displayUser, setUser, googleSignIn } = useContext(AuthContext);
     // console.log(register);
-    
+
     const [error, setError] = useState(null);
 
     const handleRegister = event => {
@@ -20,8 +28,9 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photoURL = form.photo.value;
 
-        console.log(name, email, password);
+        // console.log(name, email, password, photoURL);
 
         if (password.length <= 6) {
             setError("Password should be at least 6 characters");
@@ -29,14 +38,33 @@ const Register = () => {
         }
 
         register(email, password)
-        .then(result =>{
-            const loggedUser = result.user;
-            form.reset()
-        })
-        .catch(error =>{
-            setError(error.message)
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                displayUser(name, photoURL)
+                setUser({ ...loggedUser, ...{ name, photoURL } });
+                form.reset();
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+
+
+
+
     }
+
+    const handleGoogle = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const loggedUser = result.user;
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
+
 
 
 
@@ -82,13 +110,13 @@ const Register = () => {
                                         <div className='d-flex align-items-center'>
                                             <hr className='w-50 me-2' />
                                             <span>or</span>
-                                            <hr className='w-50 ms-2'/>
+                                            <hr className='w-50 ms-2' />
                                         </div>
 
 
                                         <div className='fs-4 d-flex justify-content-around gap-4 m-4'>
 
-                                            <FaGoogle></FaGoogle>
+                                            <FaGoogle onClick={handleGoogle}></FaGoogle>
                                             <FaGithub></FaGithub>
                                         </div>
                                         <div className="d-grid">

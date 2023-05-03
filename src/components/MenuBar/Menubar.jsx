@@ -1,7 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Button, Image, Nav, Navbar } from 'react-bootstrap';
-import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import logo from './../../assets/logo/logo.png'
@@ -9,7 +8,7 @@ import logo from './../../assets/logo/logo.png'
 const Menubar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -26,7 +25,7 @@ const Menubar = () => {
                 <Link to='/blogs' className='text-decoration-none'>Blogs</Link>
                 <Nav>
                     {
-                        user && <FaUserCircle className='me-2' style={{ fontSize: '2rem' }}></FaUserCircle>
+                        user && <Image style={{height: '40px', width:'40px'}} src={user.photoURL} alt="" rounded className='me-2' />
                     }
 
                     {user ?
