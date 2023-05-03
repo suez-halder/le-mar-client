@@ -24,7 +24,7 @@ const Register = () => {
     const [error, setError] = useState(null);
     const from = location.state?.from?.pathname || "/";
 
-    
+
     const handleRegister = event => {
         event.preventDefault();
 
@@ -36,10 +36,12 @@ const Register = () => {
 
         // console.log(name, email, password, photoURL);
 
+
         if (password.length <= 6) {
             setError("Password should be at least 6 characters");
             return;
         }
+
 
         register(email, password)
             .then(result => {
@@ -52,6 +54,7 @@ const Register = () => {
             .catch(error => {
                 setError(error.message)
             })
+
 
     }
 
@@ -66,15 +69,16 @@ const Register = () => {
             })
     }
 
-    const handleGithub = ()=>{
+    const handleGithub = () => {
         githubSignIn(githubProvider)
-        .then(result => {
-            const loggedUser = result.user;
-            navigate(from, { replace: true })
-        })
-        .catch(error => {
-            setError(error.message);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message);
+                
+            })
     }
 
 
@@ -102,7 +106,7 @@ const Register = () => {
                                             <Form.Label className="text-center">
                                                 Email address
                                             </Form.Label>
-                                            <Form.Control type="email" placeholder="Enter email" name='email' />
+                                            <Form.Control type="email" placeholder="Enter email" name='email' required />
                                         </Form.Group>
 
                                         <Form.Group
@@ -110,7 +114,7 @@ const Register = () => {
                                             controlId="formBasicPassword"
                                         >
                                             <Form.Label>Password</Form.Label>
-                                            <Form.Control type="password" placeholder="Password" name='password' />
+                                            <Form.Control type="password" placeholder="Password" name='password' required />
                                         </Form.Group>
 
                                         <Form.Group
@@ -129,8 +133,8 @@ const Register = () => {
 
                                         <div className='fs-4 d-flex justify-content-around gap-4 m-4'>
 
-                                            <FaGoogle onClick={handleGoogle}></FaGoogle>
-                                            <FaGithub onClick={handleGithub}></FaGithub>
+                                            <FaGoogle onClick={handleGoogle} style={{cursor: 'pointer'}}></FaGoogle>
+                                            <FaGithub onClick={handleGithub} style={{cursor: 'pointer'}}></FaGithub>
                                         </div>
                                         <div className="d-grid">
                                             <Button variant="primary" type="submit">

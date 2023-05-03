@@ -19,12 +19,11 @@ const Menubar = () => {
 
         return (
             <Navbar className='d-flex justify-content-between align-items-center w-75 mx-auto my-5'>
-                <ActiveLink to='/'>
-                <h2>Le Mar</h2>
-                </ActiveLink>
-
-                <div className='d-flex align-items-center gap-4 fs-5'>
-                    {/* <Link to='/' className='text-decoration-none'>Home</Link> */}
+                
+                <h2 className='text-primary'>Le Mar</h2>
+                
+                <div className='d-flex align-items-center gap-5 fs-5'>
+                    <ActiveLink to='/' className='text-decoration-none'>Home</ActiveLink>
                     <ActiveLink to='/blogs'>Blogs</ActiveLink>
                     <Nav>
                         {
@@ -38,11 +37,11 @@ const Menubar = () => {
                         }
                         
                         {user ?
-                            <Button onClick={handleLogOut} variant="danger">Logout</Button> :
+                            <Button onClick={handleLogOut} variant="danger">Logout </Button> :
 
-                            <Link to="/login">
-                                <Button variant="primary">Login</Button>
-                            </Link>
+                            <ActiveLink to="/login">
+                                <Button className='px-4 fs-6' variant="primary">Login</Button>
+                            </ActiveLink>
                         }
                     </Nav>
                 </div>

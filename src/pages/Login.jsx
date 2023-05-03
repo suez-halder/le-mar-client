@@ -25,7 +25,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || "/";
 
-    
+
     const handleLogin = event => {
         event.preventDefault();
 
@@ -44,8 +44,9 @@ const Login = () => {
 
             })
             .catch(error => {
-                setError(error);
-                console.log(error.message);
+                setError("Please enter a valid password");
+                // console.log(error.message);
+                form.reset();
             })
 
 
@@ -105,6 +106,7 @@ const Login = () => {
                                             <Form.Label>Password</Form.Label>
                                             <Form.Control type="password" placeholder="Password" name='password' />
                                         </Form.Group>
+
                                         <Form.Group
                                             className="mb-3"
                                             controlId="formBasicCheckbox"
@@ -116,14 +118,10 @@ const Login = () => {
                                             </div>
                                             <div className='fs-4 d-flex justify-content-around gap-4 m-4'>
 
-                                                <FaGoogle onClick={handleGoogle}></FaGoogle>
-                                                <FaGithub onClick={handleGithub}></FaGithub>
+                                                <FaGoogle onClick={handleGoogle} style={{ cursor: 'pointer' }}></FaGoogle>
+                                                <FaGithub onClick={handleGithub} style={{ cursor: 'pointer' }}></FaGithub>
                                             </div>
-                                            <p className="small">
-                                                <a className="text-primary" href="#!">
-                                                    Forgot password?
-                                                </a>
-                                            </p>
+
                                         </Form.Group>
                                         <div className="d-grid">
                                             <Button variant="primary" type="submit">
@@ -131,9 +129,10 @@ const Login = () => {
                                             </Button>
                                         </div>
                                     </Form>
-                                    {
-                                        error
-                                    }
+                                    <div className='text-danger mt-4'>
+                                        {error}
+                                    </div>
+
                                     <div className="mt-3">
                                         <p className="mb-0  text-center">
                                             Don't have an account?{" "}
