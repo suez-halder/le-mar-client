@@ -12,10 +12,10 @@ const Footer = () => {
                     <p className="text-center"> Discover the secret recipes of our exclusive chefs. </p>
                 </Row>
                 <div className='text-center'>
-                    <Button className='w-25 mx-auto'>Recipe Book</Button>
+                    <Button className='w-sm-50 w-lg-25 mx-auto'>Recipe Book</Button>
                 </div>
 
-                <Row className="justify-content-md-between fs-6  mt-5">
+                <Row className="d-flex text-center justify-content-md-between fs-6  mt-5">
                     <Col md={4} className="order-md-2">
                         <span className="px-2">About us</span>
                         <span className="px-2 border-start border-end">Contact us</span>

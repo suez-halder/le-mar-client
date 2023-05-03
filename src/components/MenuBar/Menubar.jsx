@@ -18,9 +18,9 @@ const Menubar = () => {
 
 
         return (
-            <Navbar className='d-flex justify-content-between align-items-center w-75 mx-auto my-5'>
+            <Navbar className='d-flex flex-sm-row flex-column justify-content-between align-items-center w-75 mx-auto my-3 gap-3'>
                 
-                <h2 className='text-primary'>Le Mar</h2>
+                <h2 className='text-primary mb-sm-4 mb-lg-0'>Le Mar</h2>
                 
                 <div className='d-flex align-items-center gap-5 fs-5'>
                     <ActiveLink to='/' className='text-decoration-none'>Home</ActiveLink>
