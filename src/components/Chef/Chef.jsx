@@ -13,10 +13,8 @@ const Chef = ({ chef }) => {
             <Card className="border-0 shadow-lg" >
                 <Card.Img src={picture} style={{ height: '400px', borderRadius: '40px' }} className='p-4' />
                 <Card.Body className="text-center">
-                    <Card.Title className="mb-3">{name}</Card.Title>
-                    <Link to={`/chefs/${id}`} className="text-decoration-none">
-                        <Button variant="primary" className="mb-3">View Recipes</Button>
-                    </Link>
+                    <Card.Title className="mb-3 fw-semibold fs-3">{name}</Card.Title>
+                    
                     <Card.Text>
                          <FaClock className='me-2 text-success'></FaClock> Years of experience: {experience} years
                     </Card.Text>
@@ -26,6 +24,9 @@ const Chef = ({ chef }) => {
                     <Card.Text>
                         <FaHeart className='text-danger'></FaHeart> {likes}
                     </Card.Text>
+                    <Link to={`/chefs/${id}`} className="text-decoration-none">
+                        <Button variant="primary" className="mb-3">View Recipes</Button>
+                    </Link>
                 </Card.Body>
             </Card>
         </Col>

@@ -18,8 +18,11 @@ const Menubar = () => {
 
         return (
             <Navbar className='d-flex justify-content-between align-items-center w-75 mx-auto my-5'>
-                <Link to='/' className='text-decoration-none'><Image style={{ height: '40px' }} src={logo}></Image></Link>
-                <div className='d-flex gap-4 fs-5'>
+                <Link to='/'>
+                <h2 className='text-primary'>Le Mar</h2>
+                </Link>
+
+                <div className='d-flex align-items-center gap-4 fs-5'>
                     {/* <Link to='/' className='text-decoration-none'>Home</Link> */}
                     <Link to='/blogs' className='text-decoration-none'>Blogs</Link>
                     <Nav>

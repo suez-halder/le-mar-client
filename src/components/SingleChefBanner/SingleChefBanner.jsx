@@ -18,19 +18,21 @@ const SingleChefBanner = () => {
                         <Image src={picture} rounded className="w-100 shadow-lg" />
                     </Col>
                     <Col md={6} className="py-4 w-100">
-                        <p className="fs-6 text-wrap">{bio}</p>
+                        <p className="fs-6 text-justify">{bio}</p>
                         <hr />
-                        <div className="d-flex align-items-center">
-                            <FaHeart className="text-danger me-2" />
-                            <span className='fs-5'>{likes} Likes</span>
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <FaUtensils className="text-secondary me-2" />
-                            <span className='fs-5'>Total Recipes: {total_recipes}</span>
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <FaClock className="text-success me-2" />
-                            <span className='fs-5'>Experience: {experience} years</span>
+                        <div className='d-flex justify-content-between mt-5'>
+                            <div className="d-flex align-items-center">
+                                <FaHeart className="text-danger me-2" />
+                                <span className='fs-5'>{likes} Likes</span>
+                            </div>
+                            <div className="d-flex align-items-center">
+                                <FaUtensils className="text-secondary me-2" />
+                                <span className='fs-5'>Total Recipes: {total_recipes}</span>
+                            </div>
+                            <div className="d-flex align-items-center">
+                                <FaClock className="text-success me-2" />
+                                <span className='fs-5'>Experience: {experience} years</span>
+                            </div>
                         </div>
                     </Col>
                 </Row>
