@@ -11,21 +11,17 @@ const Footer = () => {
                     <h3 className="text-center fs-2"> Download our Recipe Book </h3>
                     <p className="text-center"> Discover the secret recipes of our exclusive chefs. </p>
                 </Row>
-                <Row className="justify-content-center my-5">
-                    <Col xs={12} md={4} className="d-flex justify-content-around align-items-center border rounded-4 px-4 py-2 w-25 mx-2 bg-success">
-                        <FaGoogle className="me-5 text-white" size={30} />
-                        <div className="text-start">
-                            <p className="fs-6">Download on</p>
-                            <p className="fs-5">Google Play Store</p>
-                        </div>
-                    </Col>
-                    <Col xs={12} md={4} className="d-flex justify-content-around align-items-center border rounded-4 px-4 py-2 w-25 mx-2 bg-danger">
-                        <FaApple className='text-white' size={30} />
-                        <div className="text-start">
-                            <p className="fs-6">Download on</p>
-                            <p className="fs-5">Apple Store</p>
-                        </div>
-                    </Col>
+                <Row className="d-flex gap-4 w-25 mx-auto my-5">
+                    <div>
+                        <FaGoogle className="me-3 text-center" size={30} />
+                        Download on Google Play
+                    </div>
+                    <div>
+                        <FaApple className='me-3 text-center' size={30} />
+                        Download on App Store
+                    </div>
+
+
                 </Row>
                 <Row className="justify-content-md-between fs-6  mt-5">
                     <Col md={4} className="order-md-2">
