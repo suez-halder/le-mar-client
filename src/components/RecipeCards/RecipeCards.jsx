@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Recipe from '../Recipe/Recipe';
 
@@ -12,13 +13,24 @@ const RecipeCards = () => {
 
     return (
         <div>
-            {
-                recipes.map((recipe,index) => <Recipe
-                key={index}
-                recipe={recipe}
+                
+                
+                <div>
+                    {
 
-                ></Recipe>)
-            }
+
+                        recipes.map((recipe, index) => <Recipe
+                            key={index}
+                            recipe={recipe}
+
+                        ></Recipe>)
+
+
+                    }
+                </div>
+            
+
+
         </div>
     );
 };

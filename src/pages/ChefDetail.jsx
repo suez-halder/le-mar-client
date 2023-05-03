@@ -8,6 +8,7 @@ const ChefDetail = () => {
             <SingleChefBanner></SingleChefBanner>
             <RecipeCards></RecipeCards>
             
+            
         </>
     );
 };

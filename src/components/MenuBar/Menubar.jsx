@@ -8,9 +8,6 @@ import logo from './../../assets/logo/logo.png'
 const Menubar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    // const [displayName, setDisplayName] = useState('');
-
-    // console.log(user.displayName);
 
     const handleLogOut = () => {
         logOut()
@@ -18,20 +15,12 @@ const Menubar = () => {
             .catch(error => console.log(error));
     }
 
-    // const handleMouseEnter = () => {
-    //     setDisplayName(user.displayName);
-    // }
-
-    // const handleMouseLeave = () => {
-    //     setDisplayName('');
-    // }
-
 
         return (
-            <Navbar className='d-flex justify-content-between align-items-center w-75 mx-auto my-2'>
-                <Image style={{ height: '40px' }} src={logo}></Image>
+            <Navbar className='d-flex justify-content-between align-items-center w-75 mx-auto my-5'>
+                <Link to='/' className='text-decoration-none'><Image style={{ height: '40px' }} src={logo}></Image></Link>
                 <div className='d-flex gap-4 fs-5'>
-                    <Link to='/' className='text-decoration-none'>Home</Link>
+                    {/* <Link to='/' className='text-decoration-none'>Home</Link> */}
                     <Link to='/blogs' className='text-decoration-none'>Blogs</Link>
                     <Nav>
                         {
@@ -40,8 +29,7 @@ const Menubar = () => {
                                 src={user.photoURL} alt=""
                                 title={user.displayName}
                                 roundedCircle
-                                // onMouseEnter={handleMouseEnter}
-                                // onMouseLeave={handleMouseLeave}
+                            
                                 className='me-2' />
                         }
                         

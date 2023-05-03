@@ -11,7 +11,7 @@ const SingleChefBanner = () => {
     // console.log(name)
     return (
         <>
-            <Container className='w-75 mx-auto'>
+            <Container className='w-75 mx-auto my-5'>
                 <h2 className='text-center my-4 text-primary fs-2'><Typewriter text={name} loop speed={400} delay={100} /></h2>
                 <Row className="justify-content-center my-4">
                     <Col md={6} className="d-flex align-items-center">

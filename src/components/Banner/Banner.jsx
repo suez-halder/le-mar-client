@@ -4,13 +4,13 @@ import banner from './../../assets/banner/banner.jpeg'
 
 const Banner = () => {
     return (
-        <Card className="bg-dark text-white position-relative">
-            <Card.Img style={{ height: '100vh', opacity: '0.5' }} src={banner} alt="Card image" />
-            <Card.ImgOverlay className="d-flex flex-column justify-content-center align-items-center" >
-                <div className='fs-4'>
-                    <h2>Amazing French Chefs with Their Amazing Recipes</h2>
+        <Card className="bg-dark text-white">
+            <Card.Img style={{ height: '600px', opacity: '0.5' }} src={banner} alt="Card image"  />
+            <Card.ImgOverlay className="d-flex flex-column justify-content-center align-items-center" style={{ opacity: '0.8' }} >
+                <div className='fs-4 bg-secondary px-4 rounded-5 py-5'>
+                    <h2 className='text-light fs-1 w-75 mx-auto text-center'>Amazing French Chefs with Their Mouthwatering Recipes</h2>
                 </div>
-                <Button>Must Try Recipes</Button>
+                <Button variant='primary' className='my-5 fs-4 px-4 rounded-4'>Must Try Recipes</Button>
             </Card.ImgOverlay>
         </Card>
 
