@@ -7,7 +7,9 @@ const Reviews = () => {
 
 
     return (
-        <div className='d-flex justify-content-between align-items-center my-5 gap-5 '>
+        <div className='my-5 gap-5 '>
+            <h2 className='text-center my-5 fs-1'>Customer Reviews</h2>
+
 
             <Container className='mx-auto'>
                 <Carousel>
